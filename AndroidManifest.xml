@@ -20,7 +20,9 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name="Activity_preference" android:label="@string/activity_pref_name"></activity>
+        <activity android:name="Activity_preference" android:label="@string/activity_pref_name" android:theme="@style/Preference.PreferenceScreen"></activity>
+        <activity android:name="Activity_profileEditor" android:label="@string/activity_profileeditor_name"></activity>
+        <activity android:name="Activity_appInfo" android:label="@string/activity_appinfo_name"></activity>
     </application>
 
 </manifest>

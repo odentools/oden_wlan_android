@@ -13,7 +13,7 @@ import android.os.Bundle;
 public class MainActivity extends SherlockActivity {
 	private static final int MENU_ID_ADDPROFILE = 100;
 	private static final int MENU_ID_PREF = 110;
-	private static final int MENU_ID_ABOUT = 120;
+	private static final int MENU_ID_APPINFO = 120;
 	
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -39,7 +39,7 @@ public class MainActivity extends SherlockActivity {
 		sub_menu.add(Menu.NONE, MENU_ID_PREF, Menu.NONE, R.string.general_menu_pref);
 		
 		/* SubMenu > About button */
-		sub_menu.add(Menu.NONE, MENU_ID_ABOUT, Menu.NONE, R.string.general_menu_about);
+		sub_menu.add(Menu.NONE, MENU_ID_APPINFO, Menu.NONE, R.string.general_menu_about);
 		
         return true;
     }
@@ -54,10 +54,16 @@ public class MainActivity extends SherlockActivity {
 			break;
 		case MENU_ID_ADDPROFILE:
 		    ret = false;
-		    //startActivity(new Intent(this, .class));
+		    startActivity(new Intent(this, Activity_profileEditor.class));
 		    break;
 		case MENU_ID_PREF:
-			
+		    ret = false;
+		    startActivity(new Intent(this, Activity_preference.class));
+		    break;
+		case MENU_ID_APPINFO:
+		    ret = false;
+		    startActivity(new Intent(this, Activity_appInfo.class));
+		    break;
 		}
 		return ret;
     }

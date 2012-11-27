@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android" android:title="@string/activity_pref_name">
+    <PreferenceCategory android:title="@string/pref_category_general">
+        <CheckBoxPreference android:title="@string/pref_item_autoLogin_title" android:key="@string/pref_item_autoLogin_key" android:summary="@string/pref_item_autoLogin_summary"/>
+    </PreferenceCategory>
+    <PreferenceCategory android:title="@string/pref_category_experimental">
+    </PreferenceCategory>
+    
+    
+
+</PreferenceScreen>

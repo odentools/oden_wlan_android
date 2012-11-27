@@ -1,0 +1,8 @@
+<resources>
+
+    <style name="AppTheme" parent="Theme.Sherlock.Light" >
+        
+    </style>
+    <style parent="Theme.Sherlock.Light" name="Preference.PreferenceScreen"></style>
+
+</resources>

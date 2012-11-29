@@ -24,7 +24,7 @@ public class MainActivity extends SherlockActivity {
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
-        getSupportMenuInflater().inflate(R.menu.activity_main, menu);
+       getSupportMenuInflater().inflate(R.menu.activity_main, menu);
         
         /* SubMenu button */
 		SubMenu sub_menu = menu.addSubMenu("Overflow Item");
@@ -54,7 +54,9 @@ public class MainActivity extends SherlockActivity {
 			break;
 		case MENU_ID_ADDPROFILE:
 		    ret = false;
-		    startActivity(new Intent(this, Activity_profileEditor.class));
+		    Intent i_addprofile = new Intent(this, Activity_profileEditor.class);
+		    i_addprofile.putExtra("MODE", "ADD");
+		    startActivity(i_addprofile);
 		    break;
 		case MENU_ID_PREF:
 		    ret = false;

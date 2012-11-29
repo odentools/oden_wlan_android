@@ -7,17 +7,23 @@
     <string name="activity_main_name">OdenWlan for Android</string>
     <string name="activity_pref_name">アプリの設定</string>
     <string name="activity_profileeditor_name">接続設定</string>
+    <string name="activity_profileeditor_name_add">新しい接続設定</string>
+    <string name="activity_profileeditor_name_edit">接続設定の編集</string>
     <string name="activity_appinfo_name">アプリについて</string>
     <string name="general_menu_addprofile">新しい接続設定の追加</string>
     <string name="general_menu_pref">アプリの設定</string>
     <string name="general_menu_about">アプリについて</string>
     
-    
     <string name="pref_category_general">全般</string><string name="pref_category_experimental">実験的な機能</string>
     <string name="pref_item_autoLogin_key">autoLogin</string>
     <string name="pref_item_autoLogin_title">自動ログイン</string><string name="pref_item_autoLogin_summary">設定された無線LANに接続した際、自動ログインします。</string>
     
+    <string name="profileeditor_textview_ap">接続先のアクセスポイント</string>
+    <string name="profileeditor_spinner_ap_error">アクセスポイントが未選択</string>
+    <string name="profileeditor_textview_loginid">ログインID</string>
+    <string name="profileeditor_edittext_loginid_error">ログインIDが未入力</string>
+    <string name="profileeditor_textView_loginpw">ログインパスワード</string>
+    <string name="profileeditor_edittext_loginpw_error">ログインパスワードが未入力</string>
+    <string name="profileeditor_menu_ok">入力した内容で接続設定を保存</string>
     
-    
-
 </resources>

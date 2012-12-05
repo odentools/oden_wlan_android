@@ -1,9 +1,11 @@
 package info.ohgita.oden_wlanloo;
 
+import info.ohgita.oden_wlanloo.olan.Olan;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.AdapterView;
+import android.widget.ArrayAdapter;
 import android.widget.EditText;
 import android.widget.Spinner;
 import android.widget.SpinnerAdapter;
@@ -40,7 +42,14 @@ public class Activity_profileEditor extends SherlockActivity {
 			}
 
 		});
-
+		ArrayAdapter<String> adapter = new ArrayAdapter<String>(this, android.R.layout.simple_spinner_item);
+		adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+		/*for (int i=0;i<Olans.values().length;i++){
+			//Class<Olan> olan = Olans.Tnet;
+			//new Olan();
+			//adapter.add();
+		}*/
+		
 		Intent intent = getIntent();
 		if (intent.getSerializableExtra("editProfileId") != null) {
 			// Profile edit mode

@@ -4,12 +4,13 @@
     <string name="app_author">OdenTools Project, Masanori Ohgita.</string>
     <string name="app_version">1.0.0</string>
     <string name="hello_world">Hello world!</string>
-    <string name="activity_main_name">OdenWlan for Android</string>
+    <string name="activity_main_name">OdenWlan</string>
     <string name="activity_pref_name">アプリの設定</string>
     <string name="activity_profileeditor_name">接続設定</string>
     <string name="activity_profileeditor_name_add">新しい接続設定</string>
     <string name="activity_profileeditor_name_edit">接続設定の編集</string>
     <string name="activity_appinfo_name">アプリについて</string>
+    <string name="general_menu_overflow">その他</string>
     <string name="general_menu_addprofile">新しい接続設定の追加</string>
     <string name="general_menu_pref">アプリの設定</string>
     <string name="general_menu_about">アプリについて</string>

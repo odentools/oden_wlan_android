@@ -23,12 +23,20 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_alignParentBottom="true"
-        android:background="@color/main_linearLayout_footer_background" >
+        android:background="@color/main_linearLayout_footer_background"
+        android:padding="5dp" >
+
+        <ImageView
+            android:id="@+id/imageView1"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:padding="5dp"
+            android:src="@drawable/device_access_network_wifi" />
 
         <TextView
             android:id="@+id/main_textView_footer"
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
+            android:layout_height="wrap_content"
             android:layout_margin="10dip"
             android:gravity="center" />
 

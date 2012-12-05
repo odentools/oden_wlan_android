@@ -22,7 +22,7 @@ public class MainActivity extends SherlockActivity {
 		setTheme(R.style.Theme_Sherlock_Light);
 		setContentView(R.layout.activity_main);
 		TextView footer = (TextView)findViewById(R.id.main_textView_footer);
-		footer.setText("aaa");
+		footer.setText(R.string.main_footer_text_wifidisable);
 	}
 
 	@Override

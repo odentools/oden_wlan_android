@@ -16,6 +16,7 @@ public class Activity_preference extends SherlockPreferenceActivity {
 		addPreferencesFromResource(R.xml.preference);
 		
 		getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+		
 	}
 	
 	@Override  

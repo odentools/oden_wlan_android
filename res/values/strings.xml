@@ -15,6 +15,14 @@
     <string name="general_menu_pref">アプリの設定</string>
     <string name="general_menu_about">アプリについて</string>
     
+    <string name="main_footer_text_wifidisable">無線LANはオフになっています。</string>
+    <string name="main_footer_text_notconfig">接続設定が未設定です。</string>
+    <string name="main_footer_text_logining">ログイン処理中...</string>
+    <string name="main_footer_text_connecting">接続処理中...</string>
+    <string name="main_footer_text_connected_general">(通常の無線LAN) 接続済み</string>
+    <string name="main_footer_text_connected_odenwlan">(学内の無線LAN) 接続済み</string>
+    <string name="main_footer_text_error">接続エラー</string>
+    
     <string name="pref_category_general">全般</string><string name="pref_category_experimental">実験的な機能</string>
     <string name="pref_item_autoLogin_key">autoLogin</string>
     <string name="pref_item_autoLogin_title">自動ログイン</string><string name="pref_item_autoLogin_summary">設定された無線LANに接続した際、自動ログインします。</string>

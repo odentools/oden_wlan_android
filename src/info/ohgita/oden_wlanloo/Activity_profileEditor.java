@@ -7,6 +7,8 @@ import java.security.KeyStoreException;
 import java.security.NoSuchAlgorithmException;
 import java.security.cert.CertificateException;
 import java.util.HashMap;
+import java.util.Iterator;
+import java.util.Map.Entry;
 
 import info.ohgita.oden_wlanloo.olan.Olan;
 import info.ohgita.oden_wlanloo.olan.Tnet;
@@ -54,11 +56,13 @@ public class Activity_profileEditor extends SherlockActivity {
 		});
 		ArrayAdapter<String> adapter = new ArrayAdapter<String>(this, android.R.layout.simple_spinner_item);
 		adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
-		/*for (int i=0;i<Olans.values().length;i++){
-			//Class<Olan> olan = Olans.Tnet;
-			//new Olan();
-			//adapter.add();
-		}*/
+		Olans olans = new Olans(getApplicationContext());
+		
+		Iterator<Entry<String, Olan>> ite = olans.Objects.entrySet().iterator();
+		while(ite.hasNext()){
+			Olan vlan = (Olan)ite.next();
+			//adapter.add("aaa");
+		}
 		
 		Intent intent = getIntent();
 		if (intent.getSerializableExtra("editProfileId") != null) {
@@ -104,9 +108,10 @@ public class Activity_profileEditor extends SherlockActivity {
 		HashMap<String,String> param = new HashMap<String, String>();
 		param.put("aaa", "123");
 		param.put("bbb", "456");
+		tnet.isLogin();
 		String text = new String();
 		try {
-			text = tnet.post("https://www3162ue.sakura.ne.jp/", param, new Tnet.HTTPConnector_callback(){
+			tnet.post("https://s1.mpnets.net", param, new Tnet.HTTPConnector_callback(){
 				@Override
 				public void callback(String resultText) {
 					Toast.makeText(getApplicationContext(), resultText, Toast.LENGTH_SHORT).show();

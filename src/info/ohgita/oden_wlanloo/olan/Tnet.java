@@ -1,38 +1,23 @@
 package info.ohgita.oden_wlanloo.olan;
 
-import java.io.BufferedReader;
-import java.io.IOException;
-import java.io.InputStream;
-import java.io.InputStreamReader;
-import java.io.OutputStreamWriter;
-import java.net.MalformedURLException;
+/**
+ * OECU-LAN環境定義クラス	-	Tnet
+ * @class info.ohgita.oden_wlanloo.olan.Tnet
+ */
+
 import java.net.URL;
-import java.net.URLConnection;
-import java.security.KeyManagementException;
-import java.security.KeyStore;
-import java.security.KeyStoreException;
-import java.security.NoSuchAlgorithmException;
-import java.security.cert.CertificateException;
-import java.security.cert.X509Certificate;
 import java.util.HashMap;
-import java.util.Iterator;
-import java.util.Map;
-
-import javax.net.ssl.HttpsURLConnection;
-import javax.net.ssl.SSLContext;
-import javax.net.ssl.TrustManager;
-import javax.net.ssl.X509TrustManager;
-
-import org.apache.http.conn.ssl.SSLSocketFactory;
 
 import com.actionbarsherlock.R;
 
 import android.content.Context;
 import android.net.wifi.WifiInfo;
+import android.util.Log;
 
 public class Tnet extends Olan {
-	Context context;
-	String NAME = "Tnet";
+	public String NAME = "Tnet";
+	
+	protected Context context;
 
 	public Tnet(Context c){
 		super(c);
@@ -56,7 +41,11 @@ public class Tnet extends Olan {
 
 	@Override
 	public boolean isLogin() {
-
+		try {
+			get_sync("https://mpnet.sakura.ne.jp/services/test/");
+		} catch (Exception e) {
+			Log.e("owlan", e.toString(), e);
+		}
 		return false;
 	}
 
@@ -66,5 +55,29 @@ public class Tnet extends Olan {
 			return true;
 		}
 		return false;
+	}
+	
+	@Override
+	public void post(String url, HashMap<String, String> params,  HTTPConnector_callback callback){
+		HTTPConnector task = new HTTPConnector(context, callback, R.raw.tnet_alcatel_webview_bin3);  
+		task.execute("post", url, params);
+	}
+	
+	@Override
+	public String post_sync(String url, HashMap<String, String> params) throws Exception{
+		HTTPConnector task = new HTTPConnector(context, null, R.raw.tnet_alcatel_webview_bin3);  
+		return task.post(new URL(url), params);
+	}
+	
+	@Override
+	public void get(String url, HTTPConnector_callback callback){
+		HTTPConnector task = new HTTPConnector(context, callback, R.raw.tnet_alcatel_webview_bin3);  
+		task.execute("get", url);
+	}
+	
+	@Override
+	public String get_sync(String url) throws Exception{
+		HTTPConnector task = new HTTPConnector(context, null, R.raw.tnet_alcatel_webview_bin3);  
+		return task.get(new URL(url));
 	}
 }

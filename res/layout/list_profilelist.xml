@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<TableLayout android:id="@+id/tableLayout1" android:layout_height="wrap_content" xmlns:android="http://schemas.android.com/apk/res/android" android:stretchColumns="0,1" android:layout_width="fill_parent">
+    <TableRow android:id="@+id/tableRow1" android:layout_height="wrap_content" android:layout_width="wrap_content" android:paddingLeft="10dp" android:layout_marginTop="10dp">
+        <TextView android:id="@+id/textView_ProfileClassName" android:text="ClassName" android:layout_height="wrap_content" android:layout_marginLeft="5dp" android:textAppearance="?android:attr/textAppearanceMedium" android:layout_width="fill_parent" android:textSize="23dp"></TextView>
+    </TableRow>
+	<TableRow android:id="@+id/tableRow2" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginBottom="10dp">
+		<TextView android:text="TextView" android:layout_height="wrap_content" android:textAppearance="?android:attr/textAppearanceMedium" android:layout_width="wrap_content" android:paddingLeft="20dip" android:id="@+id/textView_ProfileLoginId"></TextView>
+		<TextView android:text="TextView" android:layout_height="wrap_content" android:textAppearance="?android:attr/textAppearanceMedium" android:gravity="right" android:id="@+id/textView_ProfileStatus" android:paddingRight="20dip" android:layout_width="fill_parent" android:layout_marginLeft="-10dip"></TextView>
+	</TableRow>
+</TableLayout>

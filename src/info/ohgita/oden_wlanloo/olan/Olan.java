@@ -30,7 +30,9 @@ import android.net.wifi.WifiInfo;
 import android.os.AsyncTask;
 
 public abstract class Olan {
-	public String NAME;
+	protected String NAME = "";
+	protected String LOGIN_ID_HINT = "";
+	protected String LOGIN_PW_HINT = "";
 	
 	protected Context context;
 	
@@ -47,6 +49,30 @@ public abstract class Olan {
 	abstract public boolean isLogin();
 
 	abstract public boolean isConnect(WifiInfo currentWifiInfo);
+	
+	/**
+	 * Return definition name
+	 * @return Definition name
+	 */
+	public String returnName(){
+		return NAME;
+	}
+	
+	/**
+	 * Return LoginIdHint
+	 * @return Login ID Hint
+	 */
+	public String returnLoginIdHint(){
+		return LOGIN_ID_HINT;
+	}
+	
+	/**
+	 * Return LoginPassword Hint
+	 * @return Login Password Hint
+	 */
+	public String returnLoginPwHint(){
+		return LOGIN_PW_HINT;
+	}
 	
 	/**
 	 * POST Request method (Asynchronous)

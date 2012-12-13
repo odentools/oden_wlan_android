@@ -7,7 +7,7 @@ import java.util.HashMap;
 import android.content.Context;
 
 public class Olans {
-	public HashMap<String, info.ohgita.oden_wlanloo.olan.Olan> Objects;
+	public HashMap<String, Olan> Objects;
 	public Olans(Context context) {
 		Objects = new HashMap<String, Olan>();
 		Objects.put("Tnet", new Tnet(context));

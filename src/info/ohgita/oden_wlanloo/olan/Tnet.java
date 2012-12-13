@@ -15,13 +15,16 @@ import android.net.wifi.WifiInfo;
 import android.util.Log;
 
 public class Tnet extends Olan {
-	public String NAME = "Tnet";
-	
-	protected Context context;
+	static protected String NAME = "Tnet";
+	static protected String LOGIN_ID_HINT = "(例) ht12a000";
+	static protected String LOGIN_PW_HINT = "Tnetのパスワード";
 
 	public Tnet(Context c){
 		super(c);
-		context = c;
+		super.NAME = NAME;
+		super.context = c;
+		super.LOGIN_ID_HINT = LOGIN_ID_HINT;
+		super.LOGIN_PW_HINT = LOGIN_PW_HINT;
 	}
 	
 	@Override

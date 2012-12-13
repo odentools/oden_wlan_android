@@ -18,14 +18,14 @@
         android:layout_height="wrap_content" >
 
         <TextView
-            android:id="@+id/textView_binCalcName"
+            android:id="@+id/textView_AppName"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="@string/app_name"
             android:textAppearance="?android:attr/textAppearanceLarge" />
 
         <TextView
-            android:id="@+id/textView_binCalcVersion"
+            android:id="@+id/textView_AppVersion"
             android:layout_width="wrap_content"
             android:layout_height="match_parent"
             android:layout_marginLeft="10dp"
@@ -36,7 +36,7 @@
     </LinearLayout>
 
     <TextView
-        android:id="@+id/textView_binCalcAuthor"
+        android:id="@+id/textView_AppAuthor"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="5dp"

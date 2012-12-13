@@ -4,6 +4,7 @@ import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStream;
 import java.io.InputStreamReader;
+import java.io.OutputStreamWriter;
 import java.net.MalformedURLException;
 import java.net.URL;
 import java.net.URLConnection;
@@ -13,6 +14,9 @@ import java.security.KeyStoreException;
 import java.security.NoSuchAlgorithmException;
 import java.security.cert.CertificateException;
 import java.security.cert.X509Certificate;
+import java.util.HashMap;
+import java.util.Iterator;
+import java.util.Map;
 
 import javax.net.ssl.HttpsURLConnection;
 import javax.net.ssl.SSLContext;
@@ -37,25 +41,7 @@ public class Tnet extends Olan {
 
 	@Override
 	void login() {
-		URLConnection connection;
-		StringBuffer buffer = new StringBuffer();
-		try {
-			connection = new URL("https://10.0.0.253/").openConnection();
-			HttpsURLConnection con = (HttpsURLConnection) connection;
-			
-			InputStreamReader is = new InputStreamReader(con.getInputStream());
-			BufferedReader reader = new BufferedReader(is);
-			String str;
-			while ((str = reader.readLine()) != null){
-				buffer.append(str).append("\n");
-			}
-			is.close();
-		} catch (MalformedURLException e) {
-			e.printStackTrace();
-		} catch (IOException e) {
-			e.printStackTrace();
-		}
-
+		
 	}
 
 	@Override
@@ -77,17 +63,19 @@ public class Tnet extends Olan {
 		return false;
 	}
 
-	void post(String url) throws MalformedURLException, IOException,
+	String post(String url, HashMap<String, String> body_param) throws MalformedURLException, IOException,
 			KeyStoreException, NoSuchAlgorithmException, CertificateException,
 			KeyManagementException {
+		
 		URLConnection connection = new URL(url).openConnection();
 		HttpsURLConnection con = (HttpsURLConnection) connection;
-
-		InputStream is = this.context.getResources().openRawResource(
-				R.raw.tnet_alcatel_webview_bin);
+		
+		/* Setting for SSL */
+		
+		InputStream ks_is = this.context.getResources().openRawResource(R.raw.tnet_alcatel_webview_bin);
 		KeyStore ks = KeyStore.getInstance("BKS");
-		ks.load(is, "ODENWLANLOO_CERT_STOREPASS".toCharArray());
-		is.close();
+		ks.load(ks_is, "ODENWLANLOO_CERT_STOREPASS".toCharArray());
+		ks_is.close();
 
 		SSLContext sslcon = SSLContext.getInstance("TLS");
 
@@ -109,14 +97,35 @@ public class Tnet extends Olan {
 		con.setSSLSocketFactory(sslcon.getSocketFactory());
 		con.setHostnameVerifier(SSLSocketFactory.ALLOW_ALL_HOSTNAME_VERIFIER);
 
+		/* Make a POST request */
+		
+		con.setRequestMethod("POST");
+		con.setDoOutput(true);
+		con.setChunkedStreamingMode(0);
+		OutputStreamWriter osw = new OutputStreamWriter( con.getOutputStream() );
+		Iterator<String> itr = body_param.keySet().iterator();
+		while(itr.hasNext()){
+			String key = itr.next();
+			String value = body_param.get(key);
+			osw.write(key+"="+value + "\n");
+		}
+		osw.flush();
+		osw.close();
+		
+		/* Connect */
+		
+		con.connect();
+		
+		/* Read response */
 		StringBuffer buffer = new StringBuffer();
-		InputStreamReader is_ = new InputStreamReader(con.getInputStream());
-		BufferedReader reader = new BufferedReader(is_);
+		InputStreamReader is = new InputStreamReader(con.getInputStream());
+		BufferedReader reader = new BufferedReader(is);
 		String str;
 		while ((str = reader.readLine()) != null) {
 			buffer.append(str).append("\n");
 		}
 		is.close();
-
+		
+		return buffer.toString();
 	}
 }

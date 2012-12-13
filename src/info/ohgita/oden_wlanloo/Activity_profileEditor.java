@@ -1,8 +1,18 @@
 package info.ohgita.oden_wlanloo;
 
+import java.io.IOException;
+import java.net.MalformedURLException;
+import java.security.KeyManagementException;
+import java.security.KeyStoreException;
+import java.security.NoSuchAlgorithmException;
+import java.security.cert.CertificateException;
+import java.util.HashMap;
+
 import info.ohgita.oden_wlanloo.olan.Olan;
+import info.ohgita.oden_wlanloo.olan.Tnet;
 import android.content.Intent;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
@@ -90,6 +100,23 @@ public class Activity_profileEditor extends SherlockActivity {
 	 * Save a profile
 	 */
 	protected boolean saveProfile() {
+		Tnet tnet = new Tnet(this.getApplicationContext());//DEBUG
+		HashMap<String,String> param = new HashMap<String, String>();
+		param.put("aaa", "123");
+		param.put("bbb", "456");
+		String text = new String();
+		try {
+			text = tnet.post("https://www3162ue.sakura.ne.jp/", param, new Tnet.HTTPConnector_callback(){
+				@Override
+				public void callback(String resultText) {
+					Toast.makeText(getApplicationContext(), resultText, Toast.LENGTH_SHORT).show();
+				}
+			});
+		} catch (Exception e) {
+			Log.e("owlan", e.toString(), e);
+		}
+		Log.i("owlan", text);
+		
 		Spinner spinner_ap = (Spinner) findViewById(R.id.spinner_profileeditor_ap);
 		EditText edittext_loginid = (EditText) findViewById(R.id.edittext_profileeditor_loginid);
 		EditText edittext_loginpw = (EditText) findViewById(R.id.edittext_profileeditor_loginpw);

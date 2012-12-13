@@ -60,9 +60,22 @@ public class Activity_profileEditor extends SherlockActivity {
 		
 		Iterator<Entry<String, Olan>> ite = olans.Objects.entrySet().iterator();
 		while(ite.hasNext()){
-			Olan vlan = (Olan)ite.next();
-			//adapter.add("aaa");
+			Olan vlan = ite.next().getValue();
+			//adapter.add(vlan.NAME.toString());
 		}
+		ap.setAdapter(adapter);
+		ap.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
+            @Override
+            public void onItemSelected(AdapterView<?> parent, View view,
+                    int position, long id) {
+                Spinner spinner = (Spinner) parent;
+                String item = (String) spinner.getSelectedItem();
+                Toast.makeText(Activity_profileEditor.this, item, Toast.LENGTH_SHORT).show();
+            }
+            @Override
+            public void onNothingSelected(AdapterView<?> arg0) {
+            }
+        });
 		
 		Intent intent = getIntent();
 		if (intent.getSerializableExtra("editProfileId") != null) {

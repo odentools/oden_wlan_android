@@ -46,23 +46,20 @@ public class MainActivity extends SherlockActivity {
 
 		adp = new ProfileListAdapter(this, R.layout.list_profilelist, dataList);
 
-		final ListView lv = (ListView) this
-				.findViewById(R.id.main_listView_profiles);
-		lv.setScrollingCacheEnabled(false);// ListViewの背景色不具合回避
+		final ListView lv = (ListView) this.findViewById(R.id.main_listView_profiles);
+		lv.setScrollingCacheEnabled(false);
 		lv.setAdapter(adp);
 		profileListView = lv;
-		
-	       lv.setOnItemClickListener(new AdapterView.OnItemClickListener() {
-	            @Override
-	            public void onItemClick(AdapterView<?> parent, View view,
-	                    int position, long id) {
-	            	final ProfileItem prof = (ProfileItem) profileListView.getItemAtPosition(position);
-	            	prof.delete();
-	            	profileListLoad();
-	            }
-	        });
-
-		profileListLoad();
+       lv.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+            @Override
+            public void onItemClick(AdapterView<?> parent, View view,
+                    int position, long id) {
+            	final ProfileItem prof = (ProfileItem) profileListView.getItemAtPosition(position);
+            	prof.
+            	profileListLoad();
+            }
+        });
+       profileListLoad();
 	}
 
 	@Override

@@ -13,6 +13,7 @@ import com.actionbarsherlock.R;
 import android.content.Context;
 import android.net.wifi.WifiInfo;
 import android.util.Log;
+import android.widget.Toast;
 
 public class Tnet extends Olan {
 	static protected String NAME = "Tnet";
@@ -34,7 +35,17 @@ public class Tnet extends Olan {
 
 	@Override
 	public void login() {
-		
+		HashMap<String, String> param = new HashMap<String, String>(); 
+		try {
+			post("https://10.0.0.253/", param, new HTTPConnector_callback(){
+				@Override
+				public void callback(String resultText) {
+					
+				}
+			});
+		}catch (Exception e){
+			Toast.makeText(this.context, e.toString(), Toast.LENGTH_SHORT).show();
+		}
 	}
 
 	@Override

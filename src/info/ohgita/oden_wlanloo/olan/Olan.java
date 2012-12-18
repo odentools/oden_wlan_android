@@ -124,6 +124,13 @@ public abstract class Olan {
 		return task.get(new URL(url));
 	}
 	
+	/**
+	 * Proxy change method
+	 * @param url Proxy URL
+	 */
+	public void setProxy(URL url){
+		
+	}
 	
 	/*------------------------------------------------------------------------------  */
 	

@@ -1,35 +1,20 @@
 package info.ohgita.oden_wlanloo;
 
-import java.io.IOException;
-import java.net.MalformedURLException;
-import java.security.KeyManagementException;
-import java.security.KeyStoreException;
-import java.security.NoSuchAlgorithmException;
-import java.security.cert.CertificateException;
-import java.util.HashMap;
 import java.util.Iterator;
 import java.util.Map.Entry;
 
 import info.ohgita.oden_wlanloo.olan.Olan;
-import info.ohgita.oden_wlanloo.olan.Tnet;
 import android.content.Intent;
-import android.content.SharedPreferences;
 import android.os.Bundle;
-import android.util.Log;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.EditText;
 import android.widget.Spinner;
-import android.widget.SpinnerAdapter;
-import android.widget.TextView;
-import android.widget.Toast;
-
 import com.actionbarsherlock.R;
 import com.actionbarsherlock.app.SherlockActivity;
 import com.actionbarsherlock.view.Menu;
 import com.actionbarsherlock.view.MenuItem;
-import com.actionbarsherlock.view.SubMenu;
 
 public class Activity_profileEditor extends SherlockActivity {
 	private static final int MENU_ID_SAVEPROFILE = 100;
